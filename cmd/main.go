@@ -141,6 +141,7 @@ func main() {
 		}
 		fmt.Printf("\033[32m%d.\033[0m %s -> %s   {\033[34m %s \033[0m} \n", v.Rule.Number, v.Rule.Left, v.Rule.Right, strings.Join(strs, " "))
 	}
+	hasIntersect := false
 	for i := 0; i < len(choose); i++{
 		for j := i+1; j < len(choose); j++{
 			if choose[i].Rule.Left == choose[j].Rule.Left{
@@ -150,10 +151,13 @@ func main() {
 					for _, iv := range values {
 						strs = append(strs, string(iv.(rune)))
 					}
+					hasIntersect = true
 					fmt.Printf("\033[31mПравила %d и %d имеют пересечение множеств ВЫБОР: { \033[33m %s \033[31m }\033[0m\n", choose[i].Rule.Number, choose[j].Rule.Number, strings.Join(strs, " "))
 				}
 			}
 		}
 	}
-
+	if !hasIntersect{
+		fmt.Printf("\033[32mНет пересечений множеств ВЫБОР\033[0m\n")
+	}
 }
