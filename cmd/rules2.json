@@ -1,0 +1,92 @@
+{
+    "rules": [
+        {
+            "left": "S",
+            "right": "OV"
+        },
+        {
+            "left": "V",
+            "right": "OV"
+        },
+        {
+            "left": "V",
+            "right": "ε"
+        },
+        {
+            "left": "O",
+            "right": "aW"
+        },
+        {
+            "left": "O",
+            "right": "{Y[S]}"
+        },
+        {
+            "left": "O",
+            "right": "!(Y)[S]"
+        },
+        {
+            "left": "W",
+            "right": "<a[S]"
+        },
+        {
+            "left": "W",
+            "right": "=R"
+        },
+        {
+            "left": "R",
+            "right": "-(E)"
+        },
+        {
+            "left": "R",
+            "right": "(EQ"
+        },
+        {
+            "left": "R",
+            "right": "aT"
+        },
+        {
+            "left": "T",
+            "right": "[S]"
+        },
+        {
+            "left": "T",
+            "right": "ε"
+        },
+        {
+            "left": "Y",
+            "right": "!(Y)"
+        },
+        {
+            "left": "Y",
+            "right": "aP"
+        },
+        {
+            "left": "P",
+            "right": "=a"
+        },
+        {
+            "left": "P",
+            "right": "<a"
+        },
+        {
+            "left": "E",
+            "right": "-(E)"
+        },
+        {
+            "left": "E",
+            "right": "a"
+        },
+        {
+            "left": "E",
+            "right": "(EQ"
+        },
+        {
+            "left": "Q",
+            "right": "*E)"
+        },
+        {
+            "left": "Q",
+            "right": "+E)"
+        }
+    ]
+}

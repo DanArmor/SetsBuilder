@@ -1,3 +1,4 @@
+
 {
     "rules": [
         {
@@ -6,19 +7,7 @@
         },
         {
             "left": "S",
-            "right": "Z;"
-        },
-        {
-            "left": "O",
-            "right": "Y[S]"
-        },
-        {
-            "left": "O",
-            "right": "Y[S][S]"
-        },
-        {
-            "left": "O",
-            "right": "{[S]Y}"
+            "right": "O"
         },
         {
             "left": "O",
@@ -26,15 +15,15 @@
         },
         {
             "left": "O",
-            "right": "a=Y"
+            "right": "a=E"
         },
         {
             "left": "Y",
-            "right": "(Y|Y)"
+            "right": "|(Y,Y)"
         },
         {
             "left": "Y",
-            "right": "(Y&Y)"
+            "right": "&(Y,Y)"
         },
         {
             "left": "Y",
@@ -45,8 +34,16 @@
             "right": "a"
         },
         {
-            "left": "Z",
-            "right": "O"
+            "left": "E",
+            "right": "EE+"
+        },
+        {
+            "left": "E",
+            "right": "EE*"
+        },
+        {
+            "left": "E",
+            "right": "a"
         }
     ]
 }

@@ -1,0 +1,57 @@
+
+{
+    "rules": [
+        {
+            "left": "S",
+            "right": "OQ"
+        },
+        {
+            "left": "Q",
+            "right": "ε"
+        },
+        {
+            "left": "Q",
+            "right": "OQ"
+        },
+        {
+            "left": "O",
+            "right": "{[S]Y}"
+        },
+        {
+            "left": "O",
+            "right": "a=E"
+        },
+        {
+            "left": "Y",
+            "right": "(YR"
+        },
+        {
+            "left": "R",
+            "right": "|Y)"
+        },
+        {
+            "left": "R",
+            "right": "&Y)"
+        },
+        {
+            "left": "Y",
+            "right": "!(Y)"
+        },
+        {
+            "left": "Y",
+            "right": "a"
+        },
+        {
+            "left": "E",
+            "right": "+(E,E)"
+        },
+        {
+            "left": "E",
+            "right": "*(E,E)"
+        },
+        {
+            "left": "E",
+            "right": "a"
+        }
+    ]
+}
