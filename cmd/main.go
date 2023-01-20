@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"os"
+	"strings"
 	"unicode"
 
 	"github.com/DanArmor/taEkzUtils/pkg/sets"
@@ -48,7 +49,7 @@ func filterOutFull(slice []interface{}) []interface{} {
 
 func main() {
 	rt := utils.NewRulesTable()
-	jsonFile := "rules4.json"
+	jsonFile := "rules3.json"
 	byteValue, err := ioutil.ReadFile(jsonFile)
 	if err != nil {
 		fmt.Print("Error during reading of file: ", err.Error())
@@ -109,6 +110,36 @@ func main() {
 			fmt.Printf("%s ", string(forVals[i].(rune)))
 		}
 		fmt.Printf("\n\033[32m=============\033[0m\n")
+	}
+
+	fmt.Printf("\n\033[34m CHOOSE FOR RULES \033[0m\n")
+	fmt.Printf("\033[34m ========== \033[0m\n")
+	for k, v := range result {
+		values := v.First.Values()
+		for _, r := range values{
+			if unicode.IsUpper(r.(rune)){
+				v.First.Remove(r)
+			}
+		}
+		result[k] = v
+	}
+	for k, v := range result {
+		values := v.Forward.Values()
+		for _, r := range values{
+			if unicode.IsUpper(r.(rune)){
+				v.Forward.Remove(r)
+			}
+		}
+		result[k] = v
+	}
+	choose := sets.BuildChooseSet(rt, result)
+	for _, v := range choose{
+		strs := make([]string, 0)
+		values := v.Cs.Values()
+		for _, iv := range values {
+			strs = append(strs, string(iv.(rune)))
+		}
+		fmt.Printf("\033[32m%d.\033[0m %s -> %s   {\033[34m %s \033[0m} \n", v.Rule.Number, v.Rule.Left, v.Rule.Right, strings.Join(strs, " "))
 	}
 
 }
