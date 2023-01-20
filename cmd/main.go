@@ -84,7 +84,7 @@ func main() {
 		}
 
 		forVals := v.Forward.Values()
-		forVals = filterOutEpsylon(forVals)
+		forVals = filterOutFull(forVals)
 		fmt.Printf("\n\033[36mForward(%d): \033[0m", len(forVals))
 		godsUtils.Sort(forVals, godsUtils.RuneComparator)
 		for i := 0; i < len(forVals); i++ {
