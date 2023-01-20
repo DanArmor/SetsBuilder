@@ -3,7 +3,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"os"
 	"strings"
 	"unicode"
@@ -50,7 +50,13 @@ func filterOutFull(slice []interface{}) []interface{} {
 func main() {
 	rt := utils.NewRulesTable()
 	jsonFile := "rules.json"
-	byteValue, err := ioutil.ReadFile(jsonFile)
+	file, err := os.Open(jsonFile)
+	if err != nil {
+		fmt.Print("Error during reading of file: ", err.Error())
+		os.Exit(1)
+	}
+	defer file.Close()
+	byteValue, err := io.ReadAll(file)
 	if err != nil {
 		fmt.Print("Error during reading of file: ", err.Error())
 		os.Exit(1)
