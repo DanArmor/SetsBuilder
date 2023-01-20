@@ -1,0 +1,48 @@
+{
+    "rules": [
+        {
+            "left" : "S",
+            "right" : "S;O"
+        },
+        {
+            "left" : "S",
+            "right" : "O;"
+        },
+        {
+            "left" : "O",
+            "right" : "Y[S]"
+        },
+        {
+            "left" : "O",
+            "right" : "Y[S][S]"
+        },
+        {
+            "left" : "O",
+            "right" : "{[S]Y}"
+        },
+        {
+            "left" : "O",
+            "right" : "{Y[S]}"
+        },
+        {
+            "left" : "O",
+            "right" : "a=Y"
+        },
+        {
+            "left" : "Y",
+            "right" : "(Y|Y)"
+        },
+        {
+            "left" : "Y",
+            "right" : "(Y&Y)"
+        },
+        {
+            "left" : "Y",
+            "right" : "!(Y)"
+        },
+        {
+            "left" : "Y",
+            "right" : "a"
+        }
+    ]
+}
