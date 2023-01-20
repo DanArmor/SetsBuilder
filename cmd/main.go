@@ -144,8 +144,13 @@ func main() {
 	for i := 0; i < len(choose); i++{
 		for j := i+1; j < len(choose); j++{
 			if choose[i].Rule.Left == choose[j].Rule.Left{
-				if choose[i].Cs.Intersection(choose[j].Cs).Size() != 0{
-					fmt.Printf("\033[31mПравила %d и %d имеют пересечение множеств ВЫБОР\033[0m\n", choose[i].Rule.Number, choose[j].Rule.Number)
+				if inter := choose[i].Cs.Intersection(choose[j].Cs); inter.Size() != 0{
+					values := inter.Values()
+					strs := make([]string, 0)
+					for _, iv := range values {
+						strs = append(strs, string(iv.(rune)))
+					}
+					fmt.Printf("\033[31mПравила %d и %d имеют пересечение множеств ВЫБОР: { \033[33m %s \033[31m }\033[0m\n", choose[i].Rule.Number, choose[j].Rule.Number, strings.Join(strs, " "))
 				}
 			}
 		}
