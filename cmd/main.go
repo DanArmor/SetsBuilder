@@ -49,7 +49,7 @@ func filterOutFull(slice []interface{}) []interface{} {
 
 func main() {
 	rt := utils.NewRulesTable()
-	jsonFile := "rules3.json"
+	jsonFile := "rules.json"
 	byteValue, err := ioutil.ReadFile(jsonFile)
 	if err != nil {
 		fmt.Print("Error during reading of file: ", err.Error())
@@ -140,6 +140,15 @@ func main() {
 			strs = append(strs, string(iv.(rune)))
 		}
 		fmt.Printf("\033[32m%d.\033[0m %s -> %s   {\033[34m %s \033[0m} \n", v.Rule.Number, v.Rule.Left, v.Rule.Right, strings.Join(strs, " "))
+	}
+	for i := 0; i < len(choose); i++{
+		for j := i+1; j < len(choose); j++{
+			if choose[i].Rule.Left == choose[j].Rule.Left{
+				if choose[i].Cs.Intersection(choose[j].Cs).Size() != 0{
+					fmt.Printf("\033[31mПравила %d и %d имеют пересечение множеств ВЫБОР\033[0m\n", choose[i].Rule.Number, choose[j].Rule.Number)
+				}
+			}
+		}
 	}
 
 }
